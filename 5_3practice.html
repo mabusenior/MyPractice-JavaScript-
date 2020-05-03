@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+        <meta charset="uth-8">
+        <title>JavaScript　5月3日の課題</title>  
+
+   <style>
+       body {
+           display: flex;
+           flex-wrap: wrap;
+       }
+     .box {
+       width: 30px;
+       height: 30px;
+       background-color: blue;
+       cursor: pointer;
+       margin: 1px 20px 0;
+     }
+    </style>     
+        
+        
+</head>
+
+    <body>
+        
+
+        <script>
+            'use strict';
+
+            for (let i = 0; i < 5; i++) {
+                const div = document.createElement('div');
+            div.classList.add('box');
+
+
+            div.addEventListener('click', () => {
+            div.style.background = 'red';
+            });
+            
+            div.addEventListener('mousemove', () => {
+            div.style.background = 'blue';
+            });
+            
+
+            document.body.appendChild(div);
+
+            }
+            
+        </script>
+           
+
+    </body>
+</html>
