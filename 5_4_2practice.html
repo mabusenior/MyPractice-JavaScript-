@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+        <meta charset="uth-8">
+        <title>JavaScript　5月4日の課題 オブジェクト編</title>  
+
+      
+        
+        
+</head>
+
+    <body>
+
+        
+
+        <script>
+            'use strict';
+
+            const item = [
+                     {name:"本", price: 1500},
+                     {name: "靴", price: 5000},
+                     {name: "ノート", price: 200}
+                     ];
+              
+              //靴の値段       
+             console.log(item[1].price);
+
+            //オブジェクトの中身全て
+             for (let i = 0; i < item.length; i++) {
+                    const mono = item[i];
+                    console.log(`商品は ${mono.name} 値段は ${mono.price} 円です`);
+             }
+
+    
+                
+
+                
+        </script>
+           
+
+    </body>
+</html>
