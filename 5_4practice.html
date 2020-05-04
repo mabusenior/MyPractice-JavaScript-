@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+        <meta charset="uth-8">
+        <title>JavaScript　5月4日の課題</title>  
+
+      
+        
+        
+</head>
+
+    <body>
+
+        <p id="change">　　</p>
+        <button>文字が出て来ます</button>
+        
+
+        <script>
+            'use strict';
+    
+                document.querySelector('button').addEventListener('click', () => {
+                document.getElementById('change').textContent = 'クリックすると文字の色が変わります'; });
+
+                document.querySelector('p').addEventListener('click', () => {
+                document.getElementById('change').style.color = 'orange'; });
+
+                
+        </script>
+           
+
+    </body>
+</html>
