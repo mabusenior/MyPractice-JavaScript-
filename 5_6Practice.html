@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+    <title>5月6日 JavaScript練習</title>
+    
+    <style>
+        .taxCalc{
+                text-align: center;
+                }
+
+    </style>
+	
+</head>
+
+<body>
+    <div class="taxCalc">
+        <p>税抜き価格を入力してください</p>
+        <input type="text" id="input">
+        <p>消費税額</p>
+        <div id="tax">　</div>
+        <p>合計金額</p>
+        <div id="sum">　</div>
+
+    </div>
+  
+  <script>
+
+      //テキストボックスのid="input"取得
+      const inputValue = document.getElementById('input');
+
+      //テキストボックスの値変更イベント
+      inputValue.addEventListener('change',() => {
+          const taxRate = 0.1;  //税率
+          const tax = inputValue.value * taxRate;  //消費税額
+          const sum = parseInt(inputValue.value) + inputValue.value * taxRate  //合計金額
+
+          document.getElementById('tax').textContent = tax + '円';
+          document.getElementById('sum').textContent = sum + '円';
+      })
+
+    
+  </script>
+
+
+</body>
+
+</html>
