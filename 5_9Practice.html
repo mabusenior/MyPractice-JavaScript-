@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>5月8日 JavaScript練習問題</title>
+  
+    <style>
+
+        .sozai {
+                text-align: center;
+                margin-top: 100px;
+            }   
+
+        .pic {
+                width: 400px;
+                height: 300px;
+            }
+
+    </style>
+</head>
+
+<body>
+
+    <div class = "sozai">
+        <p id = "WW">カーソルをのせると画像が変っていきます</p>
+        <img class = "pic" id = "gazo" src = "pic1.png">
+    </div>
+
+  
+
+
+    <script>
+
+            const change = document.getElementById('gazo');
+            change.addEventListener('mouseenter',() => {       
+            
+                function funcOne() { document.getElementById('gazo').src = "pic1.png"; }
+                function funcTwo() { document.getElementById('gazo').src = "pic2.png"; }
+                function funcThree() { document.getElementById('gazo').src = "pic3.png";}
+                function funcFour() { document.getElementById('gazo').src = "pic4.png"; }
+                function funcFive() { document.getElementById('gazo').src = "pic5.png"; }
+
+
+            setTimeout(funcOne,1000);
+            setTimeout(funcTwo,2000);
+            setTimeout(funcThree,3000);
+            setTimeout(funcFour,4000);
+            setTimeout(funcFive,5000);
+
+
+
+      });
+
+
+    </script>
+
+
+
+</body>
+
+</html>
