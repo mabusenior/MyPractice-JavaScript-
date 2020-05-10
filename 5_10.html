@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title> JavaScript練習</title>
+	
+</head>
+
+<body>
+  
+  <script>
+
+        const space = "black";
+        const river = "clear";
+        const nature = {
+                        sky: "skyblue",
+                        forest: "green",
+                        sea: "blue",
+                        mountain: "gray",
+                        space: space,    // 変数名 "space"
+                        river           //変数名 "river" 省略形
+                     }
+
+       
+       console.log(nature);
+
+        //sky削除
+        delete nature.sky;
+        console.log(nature);
+        
+        //horizon追加
+        nature.horizon = "地平線";
+        console.log(nature);
+
+		
+  </script>
+
+
+</body>
+
+</html>
