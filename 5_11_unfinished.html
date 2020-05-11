@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+    <title>5月11日 JavaScript練習</title>
+    
+    <style>
+
+    .kuma {
+        width: 200px; height: 150px;
+        position: absolute; bottom: 500px; left: 200px;
+    }
+    .neko {
+        width: 200px; height: 150px;
+        position: absolute; bottom: 500px; left: 400px;
+    }
+    .buta {
+        width: 200px; height: 150px;
+        position: absolute; bottom: 500px; left: 600px;
+    }
+    .inu {
+        width: 200px; height: 150px;
+        position: absolute; bottom: 500px; left: 800px;
+    }
+    .center {
+        width: 400px; height: 330px;
+        position: absolute; bottom: 50px; left: 350px;
+    }
+
+
+    </style>
+	
+    </head>
+
+    <body>
+
+      <img class = "animal" src = "kuma.png">
+      <img class = "animal" src = "neko.png">
+      <img class = "animal" src = "buta.png">
+      <img class = "animal" src = "inu.png">
+      <img class = "center" id = "center" src = "center.png">
+    
+    <script>
+        
+
+        const animalList = document.querySelectorAll('.animal');
+        animalList.forEach((target) => {
+            target.addEventListener('mouseenter', () => {
+                document.getElementById('center').src = target.src;
+            });
+
+            target.addEventListener('mouseleave', () => {
+                document.getElementById('center').src = "center.png";
+            })
+
+        });
+    
+
+            
+		
+    </script>
+
+
+  </body>
+
+</html>
