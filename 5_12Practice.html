@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+    <title> 5月12日 JavaScript練習</title>
+    
+    <style>
+
+        body {
+            margin-top: 200px;
+            text-align: center;
+           }
+
+
+
+    </style>
+	
+</head>
+
+<body>
+
+
+        <div><input type = "checkbox" class = "check" id = "checkbox">内容に同意します</div>
+        <div><button class = "btn">送信</button></div>
+  
+    
+  <script>
+        const button = document.querySelector('button');
+        const check = document.getElementById('checkbox');
+        button.addEventListener('click', (event) => {
+            
+            if (check.checked) {　
+                    alert('送信されました');
+              }
+
+        });
+
+       
+		
+  </script>
+
+
+</body>
+
+</html>
