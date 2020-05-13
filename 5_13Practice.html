@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>5月13日 JavaScript練習</title>
+    
+    <style>
+.job {
+    text-align: center;
+    margin-top: 100px;
+}
+
+
+    </style>
+</head>
+
+<body>
+
+  <div class="job">
+  <select name="job" id="select">
+        <option value="">選択してください</option>
+        <option value="正社員を選択しました">正社員</option>
+        <option value="アルバイトを選択しました">アルバイト</option>
+        <option value="無職">無職</option>  
+  </select>
+  <h6></h6>
+  </div>
+    
+  <script>
+    
+        const select = document.getElementById('select');
+        select.addEventListener('change',() => {
+            const value = select.value;
+            const textChange = document.querySelector('h6');
+            textChange.textContent = value;
+            
+            if (value === '無職') {
+                textChange.textContent = "働いてください！！"
+                textChange.style.fontSize = '40px';
+                textChange.style.color = 'red';
+            }
+
+        });
+
+    
+		
+  </script>
+
+
+</body>
+
+</html>
