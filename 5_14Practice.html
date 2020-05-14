@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>5月13日 JavaScript練習</title>
+    
+    <style>
+
+        .box{
+            text-align: center;
+            margin: 100px;
+            padding: 10px;
+        }
+
+        select {
+            width: 100px;
+            height: 100px;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+      
+      <div class="box">
+          <p>あなたの職業を選んでください</p>
+          <select id="select" multiple>
+            <option value="医者">医者</option>
+            <option value="宇宙飛行士" >宇宙飛行士</option>
+            <option value="ノーベル科学者" >ノーベル賞科学者</option>
+            <option value="有名ピアニスト" >有名ピアニスト</option>
+            <option value="神" >神</option>
+        </select>
+            <p id="message"></p>
+      </div>
+
+  <script>
+
+        let count = 0;
+        
+      
+      const select = document.getElementById('select');
+      let elements = select.options;
+      let show = "";
+
+      select.addEventListener('change',() => {
+
+        count < select.length  ? count++ :count = 5;
+        if (count === 5) {show = "やっぱりあなたは神ですか！！"
+        } else {
+            (elements[count - 1].selected)
+            show += elements[count - 1].value + "と";
+        }
+       
+
+         const message = document.getElementById('message');
+        message.textContent = show;
+      
+
+      });
+      
+      
+    
+
+    
+      
+        
+    
+
+
+    
+        
+
+
+
+    
+		
+  </script>
+
+
+</body>
+
+</html>
