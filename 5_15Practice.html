@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+    <title>5月16日 JavaScript練習</title>
+
+    <style>
+
+        body {
+                text-align: center;
+            }
+
+    </style>
+	
+</head>
+
+<body>
+    <h1>今日は以下の調査</h1>
+    <h2>map()</h2>
+    <h2>filter()</h2>
+    <h2>reduce()</h2>
+    <h2>スプレッド演算子</h2>
+    <h2>Array.from()</h2>
+  
+  <script>
+
+    //map()の使い方
+    const prices = [100,200,300,400,500];
+    const tax = prices.map((price) => {
+        return Math.floor(price + price * 0.1);
+    });
+    console.log(tax);
+
+    //filter()の使い方
+    const sellingPrices = [10,500,1000,2000,3000,4000,5000];
+    const askingPrices = sellingPrices.filter((price) => {
+        return price < 2500;
+    });
+    console.log(askingPrices);
+
+    //reduce()の使い方
+    const greet = ["あ","け","ま","し","て","お","め","で","と","う"];
+    const hpNewYear = greet.reduce((a,b) => {
+        return a + b;
+    });
+    console.log(hpNewYear);
+
+    //スプレッド演算子の使い方
+    const japan = ["NHK","法隆寺","ピカチュウ","AKB48"];
+    const japanList = ["富士","桜","味噌","醤油", ...japan];
+    console.log(japanList);
+
+    //Array.from()の使い方
+    //hpNewYearはreduce()で使った定数です
+    const greeting = Array.from(hpNewYear);
+    console.log(greeting);
+
+
+
+
+
+
+
+
+    
+		
+  </script>
+
+
+</body>
+
+</html>
