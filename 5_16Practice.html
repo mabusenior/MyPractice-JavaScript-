@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+    <title> JavaScript練習</title>
+    
+    <style>
+        .calc {
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        .hide {
+            width: 350px;
+            height: 300px;
+            opacity: 0;
+        }
+       
+        .pic {
+            width: 350px;
+            height: 300px;
+        }
+
+        .answer {
+            width: 100px;
+            height: 25px;
+            font-size: 20px;
+        }
+
+
+    </style>
+	
+</head>
+
+<body>
+
+    <div class="calc">
+        <h3>9 + 2 = ?</h3>
+        <input type="text" class="answer" id="answer" value="">
+        <h3>答えを入力してください</h3>
+        <img class="hide" id="pic" src="gugule.png">
+    </div>
+  
+  <script>
+
+    const pic = document.getElementById('pic');     //画像の要素取得
+    const answer = document.getElementById('answer');  //テキストボックス要素取得
+
+    answer.addEventListener('change', () => {
+        pic.className = "pic";          //CSSクラスをhideからpicに変更
+        if (answer.value === "11") {      
+            pic.src = "gugule.png";     //答えが11の画像
+        } else {
+            pic.src = "hazure.jpg";     //それ以外の画像
+        }
+
+    });
+
+    
+		
+  </script>
+
+
+</body>
+
+</html>
