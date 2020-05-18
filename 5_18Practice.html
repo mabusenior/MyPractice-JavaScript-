@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+    <title> JavaScript練習</title>
+    
+    <style>
+        .calc {
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        .btn {
+            width: 60px;
+            height: 30px;
+        }
+
+        .hide {
+            opacity: 0;
+        }
+
+        .show {
+            width: 400px;
+            height: 250px;
+        
+        }
+       
+        .pic {
+            width: 300px;
+            height: 200px;
+        }
+
+        .answer {
+            width: 100px;
+            height: 25px;
+            font-size: 20px;
+        }
+
+    </style>
+	
+</head>
+
+<body>
+
+    <div class="calc">
+        <h3 id="question"></h3>
+        <input type="text" class="answer" id="answer" value="">
+        <input type="button" class="btn" id="btn" value="問題">
+        <h3>答えを入力してください</h3>
+        <img class="hide" id="pic" src="omedeto.jpg">
+        <h3 id="time" >当たり0回目</h3>
+    </div>
+  
+  <script>
+
+    const pic = document.getElementById('pic');     //画像の要素取得
+    const btn = document.getElementById('btn');  //ボタンの要素取得
+    const ask = document.querySelector('h3');
+    const answer = document.getElementById('answer');
+    const time = document.getElementById('time');
+
+    
+    let count = 0;
+
+    btn.addEventListener('click', () => {   
+
+        let number1 = Math.floor(Math.random() * 11);
+        let number2 = Math.floor(Math.random() * 11);
+        let number = number1 + number2;
+
+        ask.textContent = `${number1} + ${number2} = ？`
+        answer.value = "";
+        
+        answer.addEventListener('change', () => {
+
+                 const judge = isNaN(answer.value);　//文字、数値判定
+                 if (judge === false)   {
+
+
+                            if (number === parseInt(answer.value)) {
+                                pic.className = "show";
+                                pic.src = "atari.png";
+                                count += 1;
+                                time.textContent = `当たり${count}回目`;
+                            
+                                    if (count === 3) {
+                                         pic.className = "show";
+                                         pic.src = "omedeto.jpg";
+                                         time.textContent = `当たり${count}回目`;
+                                    }
+
+                            } else { 
+                                pic.className = "show";
+                                pic.src = "hazure.png"; 
+                            }
+                        
+                        
+                    } else { time.textContent = '数値を入れてください'; }　 //文字の場合の処理
+        
+
+        });
+
+
+    });
+
+
+    
+
+    
+
+    
+		
+  </script>
+
+
+</body>
+
+</html>
