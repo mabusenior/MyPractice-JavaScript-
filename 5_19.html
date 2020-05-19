@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+    <title>5月19日 JavaScript練習</title>
+
+    <style>
+
+        .birthday {
+            text-align: center;
+        }
+
+    </style>
+    
+
+	
+</head>
+
+<body>
+
+    <div class="birthday">
+        <h1>誕生日までの日数を表示</h1>
+        <h2 id="date">あと日</h2>
+    </div> 
+    
+  <script>
+
+      // (誕生日 - 本日) の日数計算
+
+      const today = new Date("2020/05/19");  //　本日
+      const birthday = new Date("2020/11/26"); // 誕生日
+      const howManyDays = Math.floor((birthday - today) / (24 * 60 * 60 * 1000));  // 残日数計算
+
+      const days = document.getElementById('date');
+      days.textContent = `あと${howManyDays}日`; 
+
+    
+		
+  </script>
+
+
+</body>
+
+</html>
