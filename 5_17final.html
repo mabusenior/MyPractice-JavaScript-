@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+    <title> JavaScript練習</title>
+    
+    <style>
+
+        
+        .calc {
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        .btn {
+            width: 60px;
+            height: 30px;
+        }
+
+        .hide {
+            opacity: 0;
+        }
+
+        .rightBox {
+            text-align: center;
+            font-size: 100px;
+            position: absolute;
+            left: 200px;
+            bottom: 250px;
+            border-radius: 30px;
+            width: 400px;
+            height: 150px;
+            background-color: red;   
+            color:white;
+        }
+       
+        .wrongBox {
+            text-align: center;
+            font-size: 100px;
+            position: absolute;
+            left: 200px;
+            bottom: 250px;
+            border-radius: 30px;
+            width: 400px;
+            height: 150px;
+            background-color: blue;
+            color: white;
+        }
+
+        .awardBox {
+        
+            text-align: center;
+            font-size: 40px;
+            position: absolute;
+            left: 200px;
+            bottom: 200px;
+            border-radius: 30px;
+            width: 500px;
+            height: 200px;
+            background-color: pink;
+            color: red;
+        }
+
+        .text {
+            width: 100px;
+            height: 25px;
+            font-size: 20px;
+        }
+
+    </style>
+	
+</head>
+
+<body>
+
+    <div class="calc">
+        <h3 id="question"></h3>
+        <input type="text" class="text" id="text" value="">
+        <h3>答えを入力してください</h3>
+
+        <div class="box">
+            <div class="hide" id="box"></div>
+        </div>
+
+        <h3 id="time" >当たり0回目</h3>
+    </div>
+  
+  <script>
+
+        const question = document.getElementById('question');
+        const text = document.getElementById('text');  //テキストボックスから値取得
+        const box = document.getElementById('box');
+        const time = document.getElementById('time');
+
+        let numbers = 0;
+        let count = 0;
+
+
+        //乱数発生、問題作成
+        function quiz() {
+            const number1 = Math.floor(Math.random() * 11);
+            const number2 = Math.floor(Math.random() * 11);
+            numbers = number1 + number2;
+            question.textContent = `${number1} + ${number2} = ？`;
+            text.value = "";
+            box.className = 'hide';
+        }
+
+    　　　//リセット
+        function reset() {
+            quiz();
+            count = 0;
+            time.textContent = `当たり${count}回目`;
+        }
+
+        //出題、正誤判定
+        function quizShow() {
+                if (numbers === parseInt(text.value)) {
+                    box.className = 'rightBox';
+                    box.textContent = '当たり';
+                    count += 1;
+                    time.textContent = `当たり${count}回目`;
+                    setTimeout(quiz,2000);
+
+                }  else {
+                    box.className = 'wrongBox';
+                    box.textContent = 'ハズレ';
+                    count = 0;
+                    time.textContent = `当たり${count}回目`;
+                    setTimeout(quiz, 2000);
+                }
+
+        }
+
+        //正解3回目の処理
+        function threeTime () {
+                    box.className = 'awardBox';
+                    box.textContent = "おめでとうございます";
+                    count += 1;
+                    time.textContent = `当たり${count}回目`;
+                    setTimeout(reset, 2000);
+        }
+
+        ///////////////  本体  ///////////////////////
+
+        quiz();
+
+        text.addEventListener('change', () => {
+            count < 2 ? quizShow() : threeTime() ;
+        });
+
+        //////////////////////////////////////////////
+        
+
+
+    
+
+                 
+                 
+                 
+                
+
+        
+
+    
+
+
+
+    
+    
+
+    
+
+    
+		
+  </script>
+
+
+</body>
+
+</html>
