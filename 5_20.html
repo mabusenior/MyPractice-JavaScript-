@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+  <title> JavaScript練習</title>
+  
+  <style>
+  
+    body {
+       text-align: center;
+    }
+     .btn {
+          border-radius: 10px;
+          background-color: rgb(40, 121, 208);
+          margin-top: 50px;
+          margin-right: 20px;
+          text-align: center;
+          font-size: 25px;
+          color: white;
+          width: 200px;
+      }
+
+</style>
+
+	
+</head>
+
+<body>
+        <button type = "button" class="btn" id="start">開始</button>
+        <button type = "button" class="btn" id="stop">終了</button>
+        <h3></h3>
+    
+  <script>
+
+        let startTime = new Date();
+
+        const start = document.getElementById('start');
+
+        start.addEventListener('click', () => {
+           start.disabled = true;
+           startTime = startTime.getTime();
+        });
+
+        const stop = document.getElementById('stop');
+
+        stop.addEventListener('click', () => {
+           let stopTime = new Date().getTime();
+           let interval = Math.floor((stopTime - startTime) / 1000);
+           const message = document.querySelector('h3');
+           message.textContent = `${interval}秒後に停止しました`;
+        });
+
+        
+
+    
+		
+  </script>
+
+
+</body>
+
+</html>
