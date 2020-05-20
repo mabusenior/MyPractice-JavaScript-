@@ -37,18 +37,23 @@
 
         const start = document.getElementById('start');
 
+         //タイマー開始
         start.addEventListener('click', () => {
            start.disabled = true;
            startTime = startTime.getTime();
+
         });
 
         const stop = document.getElementById('stop');
 
+        //タイマー停止
         stop.addEventListener('click', () => {
+
            let stopTime = new Date().getTime();
-           let interval = Math.floor((stopTime - startTime) / 1000);
+           let interval = Math.floor((stopTime - startTime) / 1000); //停止時刻 - 開始時刻
            const message = document.querySelector('h3');
            message.textContent = `${interval}秒後に停止しました`;
+
         });
 
         
