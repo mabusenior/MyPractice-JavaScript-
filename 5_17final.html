@@ -13,21 +13,19 @@
             text-align: center;
         }
 
-        .btn {
+        /*.btn {
             width: 60px;
             height: 30px;
-        }
+        } */
 
         .hide {
             opacity: 0;
         }
 
         .rightBox {
+            margin: 50px auto;
             text-align: center;
             font-size: 100px;
-            position: absolute;
-            left: 200px;
-            bottom: 250px;
             border-radius: 30px;
             width: 400px;
             height: 150px;
@@ -36,11 +34,9 @@
         }
        
         .wrongBox {
+            margin: 50px auto;
             text-align: center;
             font-size: 100px;
-            position: absolute;
-            left: 200px;
-            bottom: 250px;
             border-radius: 30px;
             width: 400px;
             height: 150px;
@@ -49,15 +45,13 @@
         }
 
         .awardBox {
-        
+            margin: 50px auto;
+            padding-top: 90px;
             text-align: center;
             font-size: 40px;
-            position: absolute;
-            left: 200px;
-            bottom: 200px;
             border-radius: 30px;
             width: 500px;
-            height: 200px;
+            height: 150px;
             background-color: pink;
             color: red;
         }
@@ -83,7 +77,7 @@
             <div class="hide" id="box"></div>
         </div>
 
-        <h3 id="time" >当たり0回目</h3>
+        <h2 id="time" >当たり0回目</h2>
     </div>
   
   <script>
@@ -135,11 +129,19 @@
 
         //正解3回目の処理
         function threeTime () {
+            if (numbers === parseInt(text.value)) {
                     box.className = 'awardBox';
                     box.textContent = "おめでとうございます";
                     count += 1;
                     time.textContent = `当たり${count}回目`;
                     setTimeout(reset, 2000);
+            } else {
+                    box.className = 'wrongBox';
+                    box.textContent = 'ハズレ';
+                    count = 0;
+                    time.textContent = `当たり${count}回目`;
+                    setTimeout(quiz, 2000);
+            }
         }
 
         ///////////////  本体  ///////////////////////
