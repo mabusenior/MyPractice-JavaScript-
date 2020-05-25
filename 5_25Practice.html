@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+  <title>5月25日 JavaScript練習</title>
+  
+  <style>
+  
+ </style>
+
+	
+</head>
+
+<body>
+       
+    
+  <script>
+
+        class Singer {
+
+                constructor (name, song) {
+                    this.name = name;
+                    this.song = song;
+               }
+
+                //プロパティ参照時に呼び出されるメソッド
+                get cd () {
+                    return `歌手名：${this.name}  曲名：${this.song}`;
+               }
+
+                //プロパティに値を代入された時に呼び出されるメソッド
+                set artistName(singerName) {
+                    this.name = singerName;
+                    this.song = singerName;
+               }
+
+               //静的メソッド
+               static favoriteMusic (composer,music) {
+                    return `好きな作曲家：${composer}  好きな曲：${music}`;
+               }
+
+        }
+        
+        const miyuki = new Singer('中島みゆき','時代');
+        console.log(miyuki.name);
+        console.log(miyuki.song);    
+
+        //get()メソッド呼び出し
+        console.log(miyuki.cd);
+
+        //setメソッド呼び出し
+        miyuki.artistName = "桑田佳祐";
+        console.log(miyuki.name);   //桑田佳祐が出力される
+        console.log(miyuki.song);   //桑田佳祐が出力される
+
+        //静的メソッド呼び出し
+        console.log(Singer.favoriteMusic('ストラビンスキー','火の鳥'));
+		
+  </script>
+
+
+</body>
+
+</html>
