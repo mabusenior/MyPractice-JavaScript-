@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+  <title>5月26日 JavaScript練習</title>
+  
+  <style>
+  
+    
+
+</style>
+
+	
+</head>
+
+<body>
+       
+    
+  <script>
+
+      class Charactor {
+            constructor() {
+    
+                this.name = "ダーク・フレーム・マスター";
+                this.hp = Math.floor(Math.random() * 1001) + 200;
+                this.power = Math.floor(Math.random() * 5001) + 1000; 
+                
+                this.enemyPower = Math.floor(Math.random() * 1001) + 300;
+                this.reduceHp = this.hp - this.enemyPower;
+                this.takeGauge = this.power - this.enemyPower; 
+                
+
+            }
+  
+            enemyAttack() {
+                
+                console.log(`${this.name}のHPは${this.hp} 力は${this.power}`);
+                console.log('敵の攻撃を受けた！');
+                if (this.reduceHp < 1) {
+                    this.reduceHp = 0;
+                    console.log(`${this.name}のHPは${this.reduceHp} GAME OVER!!`);
+                } else {
+                    console.log(`${this.name}のHPは${this.reduceHp} 力は${this.takeGauge}に減少！`);
+                }
+           }  
+      }
+
+   const rpgGame = new Charactor();
+   rpgGame.enemyAttack(); 
+
+		
+  </script>
+
+
+</body>
+
+</html>
