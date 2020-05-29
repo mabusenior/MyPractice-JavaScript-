@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	  <meta charset="UTF-8">
+    <title>5月29日 JavaScript練習</title>
+  
+    <style>
+  
+    </style>
+
+</head>
+
+<body>
+       
+    
+    <script>
+
+        const obj = {
+            apple: 'りんご',
+            gorilla: 'ゴリラ',
+            horn: 'ラッパ',
+            pants: 'パンツ'
+        }
+
+        /* for-of でオブジェクトを反復処理できない
+
+        for(const elem of obj ) {
+            console.log(elem);       //エラーになる
+        }  
+                                 */
+        
+        //オブジェクトを反復処理する場合はfor-inを使う。
+
+        for( key in obj ) {
+            console.log( key + ': ' + obj[key] + '　　for-inの場合Ⅰ');
+            }
+
+
+        /* しかしこの場合はプロトタイプ拡張で追加されたメソッドも一緒に反復処理されてしまうので、
+            実際に使う時は hasOwnProperty() 使う必要がある */
+
+        for( key in obj ) {
+            if(obj.hasOwnProperty(key)) {
+                console.log( key + ': ' + obj[key] + '  for-inの場合Ⅱ');
+            }
+        }
+
+
+        /* オブジェクトは配列のようにforEachを使うことは出来ない。
+
+        obj.forEach((elem) => {
+            console.log(elem);
+        });                             */
+                                
+
+        /* この場合は Object.keys()メソッドで、オブジェクトのキーを取り出して配列を作り、
+           それを forEachで処理する */
+
+        Object.keys(obj).forEach((key) => {
+            console.log(`${key}: ${obj[key]}   forEachの使用例`);
+
+        });
+		
+    </script>
+
+
+</body>
+
+</html>
