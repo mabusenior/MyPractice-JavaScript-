@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	  <meta charset="UTF-8">
+    <title>5月29日 JavaScript練習</title>
+  
+    <style>
+  
+    </style>
+
+</head>
+
+<body>
+       
+    
+    <script>
+
+        const obj1 = [
+            {name: '北斗', age: 17},
+            {name: '玲花', age: 22},
+            {name: '龍之介', age: 29},
+            {name: '明日香', age: 33},
+            {name: '魔子'}
+        ];
+
+        //for文で反復処理をする
+
+        for(let i = 0; i < obj1.length; i++) {
+            const elem = obj1[i];
+            console.log(`${elem.name} ${elem.age}`)
+        }
+        /* 上記の場合、name：'魔子'対するageがないので undefined となってしまう。
+        それの対処として if文で処理する */
+
+        for(let j = 0; j < obj1.length; j++) {
+             const elem2 = obj1[j];
+           if (elem2.age === undefined) {
+                console.log(`${elem2.name}の ageはありません`);
+            } else {  
+               console.log(`${elem2.name} ${elem2.age}`);
+            } 
+        }
+
+     ///////////////////////////////////////////////////
+
+
+        const obj2 = {
+            apple: 'りんご',
+            gorilla: 'ゴリラ',
+            horn: 'ラッパ',
+            pants: 'パンツ'
+        }
+
+        /* for-of でオブジェクトを反復処理できない
+
+        for(const elem of obj2 ) {
+            console.log(elem);       //エラーになる
+        }  
+                                 */
+        
+        //オブジェクトを反復処理する場合はfor-inを使う。
+
+        for( key in obj2 ) {
+            console.log( key + ': ' + obj2[key] + '　　for-inの場合Ⅰ');
+            }
+
+
+        /* しかしこの場合はプロトタイプ拡張で追加されたメソッドも一緒に反復処理されてしまうので、
+            実際に使う時は hasOwnProperty() 使う必要がある */
+
+        for( key in obj2 ) {
+            if(obj2.hasOwnProperty(key)) {
+                console.log( key + ': ' + obj2[key] + '  for-inの場合Ⅱ');
+            }
+        }
+
+
+        /* オブジェクトは配列のようにforEachを使うことは出来ない。
+
+        obj.forEach((elem) => {
+            console.log(elem);
+        });   
+        
+         */
+                                
+
+        /* この場合は Object.keys()メソッドで、オブジェクトのキーを取り出して配列を作り、
+           それを forEachで処理する */
+
+        Object.keys(obj2).forEach((key) => {
+            console.log(`${key}: ${obj2[key]}   forEachの使用例`);
+
+        });
+		
+    </script>
+
+
+</body>
+
+</html>
