@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	  <meta charset="UTF-8">
+    <title>5月30日 JavaScript練習</title>
+  
+    <style>
+  
+    </style>
+
+</head>
+
+<body>
+           
+    <script>
+
+    /* オブジェクトをマージ(結合)する方法 ①
+        　Object.assigh()を使う           */
+
+        const objA = { piglet: '子豚', raccoon: '狸' };
+        const objB = { fox: '狐', cat: '猫' };
+
+        let mixObj = Object.assign(objA, objB);
+        console.log(mixObj);
+        console.log(objA);
+
+        /* しかし、上記では元 objA も変更されてしまった。
+            このような場合は Object.assin()に空オブジェクト{} を入れると、
+            元のオブジェクトC は変更されない */
+        
+        const objC = { apple: 'りんご', orange: 'オレンジ' };
+        const objD = { banana: 'バナナ', cherry: 'イチゴ' };
+        const mixObj2 = Object.assign({},objC, objD);
+        console.log(mixObj2);
+        console.log(objC);
+
+
+        /* ところがオブジェクトキーがダブっている場合には別の問題もある
+        　　 同じキー (table) が二つあると、後のキーに上書きされてしまう   */
+
+        const objE = { desk: '机', table: 'テーブル' };
+        const objF = { table: 'てーぶる', chair: '狐', cup: 'コップ' };
+
+        let mixObj3 = Object.assign({},objE, objF);
+        console.log(mixObj3);
+
+       
+        /////////////////////////////////////////////////////////
+
+        /*  オブジェクトをマージ(結合)する方法 ②
+            スプレッド構文を使う               */
+
+        let obj1 = { piano: 'ピアノ', guitar: 'ギター'};
+        let obj2 = { bass: 'ベース', keyboard: 'キーボード'};
+
+        let obj3 = {...obj1, ...obj2}
+        console.log(obj3);
+		
+    </script>
+
+
+</body>
+
+</html>
