@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	  <meta charset="UTF-8">
+    <title>5月31日 JavaScript練習</title>
+  
+    <style>
+  
+    </style>
+
+</head>
+
+<body>
+       
+    
+    <script>
+
+        //////////////    Mapの作成、初期化 ①    /////////////////////////
+
+        const worldMap = new Map( [['フランス','パリ'],['ロシア','モスクワ'],['アメリカ','ワシントン']] );
+        
+        //set()メソッドで要素の追加
+        worldMap.set('イギリス','ロンドン');
+
+        //Mapの中身を表示する場合はスプレッド構文を使う
+        console.log([...worldMap]);
+
+        //set()メソッドで要素の上書き
+        worldMap.set('アメリカ','ニューヨーク');
+        console.log([...worldMap]);
+
+        //要素の取り出し
+        console.log(worldMap.get("フランス"));  //keyフランスに対するvalue パリが取得される
+        console.log( [...worldMap.keys()] );           //worldMapのkey全てが取得される
+        console.log( [...worldMap.values()] );         //worldMapのvalue全てが取得される
+
+
+        // 反復処理 forEach()で反復処理をして、push()で配列化する例
+        const result = [];
+        worldMap.forEach((value,key) => {
+            result.push(`${key}:${value}`);
+        });
+
+        console.log(result);
+
+
+        // 反復処理  for-of を使用する例
+
+        const keys = [];
+        for (const key of worldMap.keys()) {  //全てのkeyを取得する
+            keys.push(key);
+        }
+        
+        console.log(keys)
+
+
+        //////////////   Mapの作成、初期化 ②  //////////////////////////
+
+        const creatureMap = new Map();
+
+        // 要素の追加
+        creatureMap.set('鳥類','カラス');
+        creatureMap.set('魚類','マグロ');
+        creatureMap.set('爬虫類','カメ');
+
+        console.log([...creatureMap]);
+
+
+        /*  その他にも、あきぞーさんが連想配列を使って
+            if文を減らす例を紹介していました  */
+
+        
+        
+    
+
+
+         
+        
+
+        
+
+    
+		
+    </script>
+
+
+</body>
+
+</html>
